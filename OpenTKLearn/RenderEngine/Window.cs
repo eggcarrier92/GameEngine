@@ -101,7 +101,7 @@ namespace GameEngine.RenderEngine
                 _readyToRender = false;
             }
 
-            _cube.Rotate(360 * (float) args.Time, 0 * (float) args.Time, 0);
+            _cube.Rotate(360 * (float) args.Time, 360 * (float) args.Time, 0);
             //_quad.scale -= 1f * (float) args.Time;
             //_cube.Translate(0, 0, 1 * (float)args.Time);
         }
