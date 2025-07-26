@@ -48,9 +48,9 @@ namespace GameEngine.Entities
 
             _position += moveDirection * _speed * (float)args.Time;
 
-            if (_window.IsKeyDown(Keys.Q))
+            if (_window.IsKeyDown(Keys.LeftShift))
                 _position.Y -= _speed * (float)args.Time;
-            if (_window.IsKeyDown(Keys.E))
+            if (_window.IsKeyDown(Keys.Space))
                 _position.Y += _speed * (float)args.Time;
         }
 

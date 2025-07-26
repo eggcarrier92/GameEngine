@@ -49,7 +49,7 @@ namespace GameEngine.RenderEngine
             _renderer = new(_shader);
             _cube = new(
                 new Cube("Resources/Textures/texture.png", _loader).texturedModel, 
-                new Vector3(-0.3f, 0f, -2), 0, 0, 0, 1);
+                new Vector3(-0.3f, 1f, -2), 0, 0, 0, 1);
             _ground = new(
                 new Quad("Resources/Textures/grass.png", _loader).texturedModel,
                 new Vector3(0, -0.1f, 0), 90, 0, 0, 10);
@@ -101,7 +101,7 @@ namespace GameEngine.RenderEngine
                 _readyToRender = false;
             }
 
-            //_cube.Rotate(360 * (float) args.Time, 0 * (float) args.Time, 0);
+            _cube.Rotate(360 * (float) args.Time, 0 * (float) args.Time, 0);
             //_quad.scale -= 1f * (float) args.Time;
             //_cube.Translate(0, 0, 1 * (float)args.Time);
         }
