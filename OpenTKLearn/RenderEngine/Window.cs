@@ -14,7 +14,7 @@ namespace GameEngine.RenderEngine
     public class Window : GameWindow
     {
 #pragma warning disable CS8618 
-        public static Window instance { get; private set; }
+        public static Window Instance { get; private set; }
 #pragma warning restore CS8618 
 
         private readonly Loader _loader = new();
@@ -24,9 +24,10 @@ namespace GameEngine.RenderEngine
 
         private bool _readyToRender  = true;
 
-        private readonly Entity _cube;
-        private readonly Entity _ground;
         private int _frames;
+
+        public List<Entity> Entities { get; private set; }
+        public Loader Loader => _loader;
 
         public static Window CreateWindow(int width, int height, string title)
         {
@@ -44,35 +45,28 @@ namespace GameEngine.RenderEngine
         public Window(GameWindowSettings gameWindowSettings, NativeWindowSettings nativeWindowSettings) 
             : base(gameWindowSettings, nativeWindowSettings) 
         {
-            instance = this;
+            Instance = this;
+            Entities = new();
             _shader = new();
             _renderer = new(_shader);
-            _cube = new(
-                new Cube("Resources/Textures/texture.png", _loader).texturedModel, 
-                new Vector3(-0.3f, 1f, -2), 0, 0, 0, 1);
-            _ground = new(
-                new Quad("Resources/Textures/grass.png", _loader).texturedModel,
-                new Vector3(0, -0.1f, 0), 90, 0, 0, 10);
+            
             _camera = new();
         }
-
         protected override void OnLoad()
         {
             base.OnLoad();
 
             ShowData();
         }
-
         async private void ShowData()
         {
             // FPS
-            Console.WriteLine("FPS: " + _frames);
+            Title = "Game Engine | FPS: " + _frames;
             _frames = 0;
             //Console.WriteLine("Transformation matrix:\n" + Maths.CreateTransformationMatrix(_entity.position, _entity.rotX, _entity.rotY, _entity.rotZ, _entity.scale));
             await Task.Delay(1000);
             ShowData();
         }
-
         protected override void OnRenderFrame(FrameEventArgs args)
         {
             base.OnRenderFrame(args);
@@ -82,30 +76,24 @@ namespace GameEngine.RenderEngine
             _renderer.Prepare();
             _shader.Start();
             _shader.LoadViewMatrix(_camera);
-            _renderer.Render(_ground, _shader);
-            _renderer.Render(_cube, _shader);
+
+            foreach (var entity in Entities)
+                _renderer.Render(entity, _shader);
+
             _shader.Stop();
             _frames++;
 
             SwapBuffers();
         }
-
         protected override void OnUpdateFrame(FrameEventArgs args)
         {
             base.OnUpdateFrame(args);
-
-
             if (KeyboardState.IsKeyDown(Keys.Escape))
             {
                 Close();
                 _readyToRender = false;
             }
-
-            _cube.Rotate(360 * (float) args.Time, 360 * (float) args.Time, 0);
-            //_quad.scale -= 1f * (float) args.Time;
-            //_cube.Translate(0, 0, 1 * (float)args.Time);
         }
-
         protected override void OnResize(ResizeEventArgs args)
         {
             base.OnResize(args);
@@ -114,7 +102,6 @@ namespace GameEngine.RenderEngine
             _renderer.CreateProjectionMatrix();
             _renderer.LoadProjectionMatrix(_shader);
         }
-
         protected override void OnUnload()
         {
             base.OnUnload();

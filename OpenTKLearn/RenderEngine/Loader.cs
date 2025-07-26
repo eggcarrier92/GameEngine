@@ -25,15 +25,13 @@ namespace GameEngine.RenderEngine
             UnbindVAO();
             return new RawModel(vaoID, indices.Length);
         }
-
         public int LoadTexture(string fileName)
         {
             Texture texture = new(fileName);
-            int textureID = texture.textureID;
+            int textureID = texture.TextureID;
             _textures.Add(textureID);
             return textureID;
         }
-
         /// <summary>
         /// Deletes all the VAOs and the VBOs from the video memory
         /// </summary>
@@ -46,7 +44,6 @@ namespace GameEngine.RenderEngine
             foreach(var textureID in _textures)
                 GL.DeleteTexture(textureID);
         }
-
         /// <summary>
         /// Creates a new VAO and binds it
         /// </summary>
@@ -58,7 +55,6 @@ namespace GameEngine.RenderEngine
             GL.BindVertexArray(vaoID);
             return vaoID;
         }
-
         /// <summary>
         /// Stores the data in the attribute list of the VAO
         /// </summary>
@@ -73,12 +69,10 @@ namespace GameEngine.RenderEngine
             GL.VertexAttribPointer(attributeNumber, coordinateSize, VertexAttribPointerType.Float, false, 0, 0);
             GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
         }
-
         private void UnbindVAO()
         {
             GL.BindVertexArray(0);
         }
-
         private void BindIndicesBuffer(int[] indices)
         {
             int vboID = GL.GenBuffer();

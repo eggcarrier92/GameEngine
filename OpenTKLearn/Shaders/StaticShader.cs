@@ -27,17 +27,14 @@ namespace GameEngine.Shaders
             _location_projectionMatrix = GetUniformLocation("projectionMatrix");
             _location_viewMatrix = GetUniformLocation("viewMatrix");
         }
-
         public void LoadTransformationMatrix(Matrix4 matrix)
         {
             LoadMatrix(_location_transformationMatrix, matrix);
         }
-
         public void LoadProjectionMatrix(Matrix4 matrix)
         {
             LoadMatrix(_location_projectionMatrix, matrix);
         }
-
         public void LoadViewMatrix(Camera camera)
         {
             LoadMatrix(_location_viewMatrix, Maths.CreateViewMatrix(camera));

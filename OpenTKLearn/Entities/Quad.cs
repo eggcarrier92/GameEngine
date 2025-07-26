@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 
 namespace GameEngine.Entities
 {
-    [SupportedOSPlatform("windows")]
     public class Quad
     {
         private readonly float[] _vertices = {
@@ -31,7 +30,7 @@ namespace GameEngine.Entities
         };
         private readonly TexturedModel _texturedModel;
 
-        public TexturedModel texturedModel => _texturedModel;
+        public TexturedModel TexturedModel => _texturedModel;
 
         public Quad(string texturePath, Loader loader)
         {

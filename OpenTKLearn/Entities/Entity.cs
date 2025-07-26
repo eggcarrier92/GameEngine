@@ -10,12 +10,12 @@ namespace GameEngine.Entities
         private float _rotX, _rotY, _rotZ;
         private float _scale;
 
-        public TexturedModel model => _model;
-        public Vector3 position => _position;
-        public float rotX => _rotX;
-        public float rotY => _rotY;
-        public float rotZ => _rotZ;
-        public float scale { get => _scale; set { _scale = value; } }
+        public TexturedModel Model => _model;
+        public Vector3 Position => _position;
+        public float RotX => _rotX;
+        public float RotY => _rotY;
+        public float RotZ => _rotZ;
+        public float Scale { get => _scale; set { _scale = value; } }
 
         public Entity(TexturedModel model, Vector3 position, float rotX, float rotY, float rotZ, float scale)
         {

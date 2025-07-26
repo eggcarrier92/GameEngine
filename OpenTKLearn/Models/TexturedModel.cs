@@ -7,8 +7,8 @@ namespace GameEngine.Models
         private readonly RawModel _rawModel;
         private readonly ModelTexture _modelTexture;
 
-        public RawModel rawModel => _rawModel;
-        public ModelTexture modelTexture => _modelTexture;
+        public RawModel RawModel => _rawModel;
+        public ModelTexture ModelTexture => _modelTexture;
 
         public TexturedModel(RawModel model, ModelTexture texture)
         {

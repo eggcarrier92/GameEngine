@@ -13,15 +13,15 @@ namespace GameEngine.Entities
 			 0.5f,-0.5f,-0.5f, 
 			 0.5f, 0.5f,-0.5f, 
 			// front
-			-0.5f, 0.5f, 0.5f, // 0 1
-			-0.5f,-0.5f, 0.5f, // 0 0
-			 0.5f,-0.5f, 0.5f, // 1 0
-			 0.5f, 0.5f, 0.5f, // 1 1
+			-0.5f, 0.5f, 0.5f, 
+			-0.5f,-0.5f, 0.5f, 
+			 0.5f,-0.5f, 0.5f, 
+			 0.5f, 0.5f, 0.5f, 
 			// right
-			 0.5f, 0.5f,-0.5f, // 1 1
-			 0.5f,-0.5f,-0.5f, // 1 0
-			 0.5f,-0.5f, 0.5f, // 0 0
-			 0.5f, 0.5f, 0.5f, // 0 1
+			 0.5f, 0.5f,-0.5f, 
+			 0.5f,-0.5f,-0.5f, 
+			 0.5f,-0.5f, 0.5f, 
+			 0.5f, 0.5f, 0.5f, 
 			// left
 			-0.5f, 0.5f,-0.5f,
 			-0.5f,-0.5f,-0.5f,
@@ -88,14 +88,14 @@ namespace GameEngine.Entities
 			1,1,
 			1,0,
 
-			0,1,
-			0,0,
 			1,0,
 			1,1,
+			0,1,
+			0,0,
 	};
 		private readonly TexturedModel _texturedModel;
 
-        public TexturedModel texturedModel => _texturedModel;
+        public TexturedModel TexturedModel => _texturedModel;
 
         public Cube(string texturePath, Loader loader)
         {

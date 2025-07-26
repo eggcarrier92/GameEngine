@@ -10,18 +10,18 @@ namespace GameEngine.RenderEngine
 {
     public class Texture
     {
-        public int textureID { get; set; }
+        public int TextureID { get; set; }
 
         public Texture(string path)
         {
-            textureID = GL.GenTexture();
+            TextureID = GL.GenTexture();
             Use(path);
         }
 
         private void Use(string path)
         {
             GL.ActiveTexture(TextureUnit.Texture0);
-            GL.BindTexture(TextureTarget.Texture2D, textureID);
+            GL.BindTexture(TextureTarget.Texture2D, TextureID);
             //Load the image
             Image<Rgba32> image = Image.Load<Rgba32>(path);
 
@@ -44,7 +44,7 @@ namespace GameEngine.RenderEngine
                     pixels.Add(row[x].A);
                 }
             }
-            GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, image.Width, 
+            GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, image.Width,
                 image.Height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, pixels.ToArray());
             GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
             GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);

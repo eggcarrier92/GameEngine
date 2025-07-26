@@ -15,15 +15,14 @@ namespace GameEngine.Toolbox
             matrix *= Matrix4.CreateTranslation(translation);
             return matrix;
         }
-
         public static Matrix4 CreateViewMatrix(Camera camera)
         {
             Matrix4 viewMatrix = Matrix4.Identity;
-            Vector3 cameraPos = camera.position;
+            Vector3 cameraPos = camera.Position;
             Vector3 negativeCameraPos = -cameraPos;
             viewMatrix *= Matrix4.CreateTranslation(negativeCameraPos);
-            viewMatrix *= Matrix4.CreateRotationY(MathHelper.DegreesToRadians(camera.yaw));
-            viewMatrix *= Matrix4.CreateRotationX(MathHelper.DegreesToRadians(camera.pitch));
+            viewMatrix *= Matrix4.CreateRotationY(MathHelper.DegreesToRadians(camera.Yaw));
+            viewMatrix *= Matrix4.CreateRotationX(MathHelper.DegreesToRadians(camera.Pitch));
             return viewMatrix;
         }
     }

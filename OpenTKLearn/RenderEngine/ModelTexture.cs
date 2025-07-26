@@ -4,7 +4,7 @@
     {
         private readonly int _textureID;
 
-        public int textureID => _textureID;
+        public int TextureID => _textureID;
 
         public ModelTexture(int id)
         {
