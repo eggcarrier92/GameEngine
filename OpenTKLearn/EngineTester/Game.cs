@@ -32,6 +32,7 @@ namespace GameEngine.EngineTester
             _window.Entities.Add(_ground);
             _window.Entities.Add(_object);
         }
+
         private void OnUpdateFrame(FrameEventArgs args)
         {
             _cube.Rotate(0, 360 * (float)args.Time, 0);

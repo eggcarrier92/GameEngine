@@ -21,6 +21,7 @@ namespace GameEngine.Entities
             _window.UpdateFrame += Move;
             _window.MouseMove += Rotate;
         }
+
         private void Move(FrameEventArgs args)
         {
             Vector3 viewDirection = new(
@@ -45,6 +46,7 @@ namespace GameEngine.Entities
             if (_window.IsKeyDown(Keys.Space))
                 _position.Y += _speed * (float)args.Time;
         }
+
         private void Rotate(MouseMoveEventArgs args)
         {
             Pitch += args.DeltaY * _sensitivity;

@@ -18,10 +18,12 @@ namespace GameEngine.Entities
 				-0.5f, -0.5f, 0f,//v3
 		};
 
+
         private readonly int[] _indices = {
                 0,1,3,//top left triangle (v0, v1, v3)
 				3,1,2//bottom right triangle (v3, v1, v2)
 		};
+
         private readonly float[] _textureCoords = {
             0,1,
             0,0,

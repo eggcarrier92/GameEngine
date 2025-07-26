@@ -11,6 +11,7 @@ namespace GameEngine.Entities
     public class OBJModel
     {
         public TexturedModel TexturedModel { get; private set; }
+
         public OBJModel(string modelPath, string texturePath, Loader loader)
         {
             RawModel rawModel = OBJLoader.LoadObjModel(modelPath, loader);

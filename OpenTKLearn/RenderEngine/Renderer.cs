@@ -41,6 +41,7 @@ namespace GameEngine.RenderEngine
             GL.Clear(ClearBufferMask.ColorBufferBit);
             GL.Clear(ClearBufferMask.DepthBufferBit);
         }
+
         /// <summary>
         /// Renders a model to the screen.
         /// </summary>

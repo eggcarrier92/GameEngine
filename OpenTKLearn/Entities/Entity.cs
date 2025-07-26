@@ -26,12 +26,14 @@ namespace GameEngine.Entities
             _rotZ = rotZ;
             _scale = scale;
         }
+
         public void Translate(float dx, float dy, float dz)
         {
             _position.X += dx;
             _position.Y += dy;
             _position.Z += dz;
         }
+
         public void Rotate(float dx, float dy, float dz)
         {
             _rotX += dx;

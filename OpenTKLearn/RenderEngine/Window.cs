@@ -52,12 +52,14 @@ namespace GameEngine.RenderEngine
             
             _camera = new();
         }
+
         protected override void OnLoad()
         {
             base.OnLoad();
 
             ShowData();
         }
+
         async private void ShowData()
         {
             // FPS
@@ -67,6 +69,7 @@ namespace GameEngine.RenderEngine
             await Task.Delay(1000);
             ShowData();
         }
+
         protected override void OnRenderFrame(FrameEventArgs args)
         {
             base.OnRenderFrame(args);
@@ -85,6 +88,7 @@ namespace GameEngine.RenderEngine
 
             SwapBuffers();
         }
+
         protected override void OnUpdateFrame(FrameEventArgs args)
         {
             base.OnUpdateFrame(args);
@@ -94,6 +98,7 @@ namespace GameEngine.RenderEngine
                 _readyToRender = false;
             }
         }
+
         protected override void OnResize(ResizeEventArgs args)
         {
             base.OnResize(args);
@@ -102,6 +107,7 @@ namespace GameEngine.RenderEngine
             _renderer.CreateProjectionMatrix();
             _renderer.LoadProjectionMatrix(_shader);
         }
+
         protected override void OnUnload()
         {
             base.OnUnload();

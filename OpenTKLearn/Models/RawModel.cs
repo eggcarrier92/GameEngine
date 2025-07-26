@@ -10,6 +10,7 @@
 
         /// <summary>The ID of the VAO which contains the data about all the geometry of this model.</summary>
         public int VaoID => _vaoID;
+
         /// <summary>The number of vertices in the model.</summary>
         public int VertexCount => _vertexCount;
 
