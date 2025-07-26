@@ -34,7 +34,7 @@ namespace GameEngine.RenderEngine
         /// </summary>
         public void Prepare()
         {
-            GL.ClearColor(0, 1, 1, 1);
+            GL.ClearColor(.3f, .7f, 1, 1);
             GL.Clear(ClearBufferMask.ColorBufferBit);
             GL.Clear(ClearBufferMask.DepthBufferBit);
             GL.Enable(EnableCap.DepthTest);

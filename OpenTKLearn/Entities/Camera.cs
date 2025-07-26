@@ -14,7 +14,7 @@ namespace GameEngine.Entities
     public class Camera
     {
         private readonly RenderEngine.Window _window;
-        private float _speed = 5f, _sensitivity = .1f;
+        private readonly float _speed = 5f, _sensitivity = .1f;
         private Vector3 _position;
 
         public Vector3 position => _position;
