@@ -21,7 +21,7 @@ namespace GameEngine.EngineTester
             _loader = _window.Loader;
             _cube = new(
                 new Cube("Resources/Textures/texture.png", _loader).TexturedModel,
-                new Vector3(-0.3f, 0.4f, -5), 0, 0, 0, 1f);
+                new Vector3(-0.3f, 3.3f, 2f), 0, 0, 0, 1f);
             _ground = new(
                 new Quad("Resources/Textures/grass.png", _loader).TexturedModel,
                 new Vector3(0, -0.1f, 0), 90, 0, 0, 10);
